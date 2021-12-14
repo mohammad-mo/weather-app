@@ -95,7 +95,7 @@ button:hover {
 .weather.loading::after {
     position: absolute;
     top: 0;
-    content: 'loading';
+    content: 'loading ...';
     visibility: visible;
     color: #fff;
 }
