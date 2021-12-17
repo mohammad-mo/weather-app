@@ -8,7 +8,16 @@ class Weather
     {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.#apiKey}`)
         .then(response => response.json())
-        .then(data => this.displayWeather(data))
+        .then(data => 
+        {
+            if (!data.name) throw new Error(`${data.message}`)
+            return this.displayWeather(data)
+        })
+        .catch(err => 
+        {
+            alert(`${err.message}. please enter a valid city!`)
+            console.error(err.message)
+        })
     }
 
     displayWeather(data)
@@ -47,5 +56,6 @@ document.querySelector('.search-bar').addEventListener('keyup', (event) =>
     if (event.key === 'Enter')
     {
         weather.search()
+        document.querySelector('.search-bar').value = ''
     }
 })
