@@ -49,6 +49,7 @@ weather.fetchWeather('london')
 document.querySelector('.search button').addEventListener('click', () =>
 {
     weather.search()
+    document.querySelector('.search-bar').value = ''
 })
 
 document.querySelector('.search-bar').addEventListener('keyup', (event) =>
