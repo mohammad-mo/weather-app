@@ -2,6 +2,11 @@ class Weather
 {
     #apiKey = '7af9f83af7663f60dede4028e5ca555a'
 
+    #sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+
     constructor() {}
 
     fetchWeather(city)
@@ -34,7 +39,7 @@ class Weather
         document.querySelector('.humidity').innerText = `Humidity: ${humidity}%`
         document.querySelector('.wind').innerText = `Wind Speed: ${speed} km/h`
         document.querySelector('.weather').classList.remove('loading')
-        document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name +"')"
+        document.body.style.backgroundImage = "url('https://source.unsplash.com/" + this.#sizes.width + "x" + this.#sizes.height + "/?" + name +"')"
     }
 
     search()
